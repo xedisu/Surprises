@@ -1,11 +1,8 @@
 package surprise;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class FortuneCookie implements ISurprise {
-
     private static final String[] quotes = {
             "Cand vei fi multumit sa fii pur si simplu tu insuti si sa nu te compari cu ceilalti, toti te vor respecta. (Lao Tse)",
             "Odata ce ai ales speranta, totul este posibil. (Christopher Reeve)",
@@ -28,18 +25,19 @@ public class FortuneCookie implements ISurprise {
             "Toti avem in noi o nestiuta rezerva de energie care izbucneste cand viata ne pune la incercare. (Isabel Allende)",
             "Stelele nu pot straluci fara intuneric. (Anonim)"
     };
+
     String message;
     private static final Random randomGen = new Random();
 
     private FortuneCookie(String message) {
-    this.message = message;
+        this.message = message;
     }
 
     @Override
     public String toString() {
         String theMessage = message.substring(0, message.indexOf("("));
         String theAuthor = message.substring(message.indexOf("("));
-        return "\n" +"[FortuneCookie] message = " + theMessage + "\nAuthor: " + theAuthor ;
+        return "\n" + "[FortuneCookie] message = " + theMessage + "\nAuthor: " + theAuthor;
     }
 
     @Override
@@ -50,6 +48,6 @@ public class FortuneCookie implements ISurprise {
     public static FortuneCookie generate() {
         int randomQuoteIndex = randomGen.nextInt(quotes.length);
 
-       return  new FortuneCookie(FortuneCookie.quotes[randomQuoteIndex]);
+        return new FortuneCookie(FortuneCookie.quotes[randomQuoteIndex]);
     }
 }

@@ -1,11 +1,8 @@
 package surpriseGiving;
 
-import bag.IBag;
-
 public class GiveSurpriseAndApplause extends AbstractGiveSurprises {
-
-    public GiveSurpriseAndApplause(String type, int waitTime){
-        super(type,waitTime);
+    public GiveSurpriseAndApplause(String type, int waitTime) {
+        super(type, waitTime);
     }
 
     @Override

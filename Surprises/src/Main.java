@@ -17,10 +17,6 @@ public class Main {
         giveSurpriseAndApplause.giveAll();
         giveSurpriseAndApplause.give();
 
-
-
 //        giveSurpriseAndSing.giveAll();
-
-
     }
 }
