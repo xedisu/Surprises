@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LIFOBag implements IBag {
-
     ArrayList<ISurprise> surprises;
 
     public LIFOBag() {
@@ -20,22 +19,19 @@ public class LIFOBag implements IBag {
 
     @Override
     public void put(IBag bagOfSurprises) {
-        for ( int i = 1 ; i<= surprises.size(); ){
-
-            ISurprise nextSurprise = bagOfSurprises.takeOut();
-            this.put(nextSurprise);
+        while (!bagOfSurprises.isEmpty()) {
+            this.put(bagOfSurprises.takeOut());
         }
-    }
-
-    @Override
-    public ISurprise takeOut() {
-
-        return this.surprises.remove(surprises.size()-1);
     }
 
     @Override
     public void put(ISurprise[] surpriseArrayList) {
         surprises.addAll(Arrays.asList(surpriseArrayList));
+    }
+
+    @Override
+    public ISurprise takeOut() {
+        return surprises.isEmpty() ? null : surprises.remove(surprises.size() - 1);
     }
 
     @Override

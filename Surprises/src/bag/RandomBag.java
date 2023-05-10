@@ -1,6 +1,7 @@
 package bag;
 
 import surprise.ISurprise;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -9,7 +10,7 @@ public class RandomBag implements IBag {
 
     ArrayList<ISurprise> surprises;
 
-    public RandomBag () {
+    public RandomBag() {
         surprises = new ArrayList<>();
     }
 
@@ -20,19 +21,9 @@ public class RandomBag implements IBag {
 
     @Override
     public void put(IBag bagOfSurprises) {
-        for ( int i = 1 ; i<= surprises.size(); ){
-
-            ISurprise nextSurprise = bagOfSurprises.takeOut();
-            this.put(nextSurprise);
+        for (int i = 1; i <= surprises.size(); ) {
+            this.put(bagOfSurprises.takeOut());
         }
-    }
-
-    @Override
-    public ISurprise takeOut() {
-        Random randomGen = new Random();
-        int nextIndex = randomGen.nextInt(this.surprises.size());
-
-        return this.surprises.remove(nextIndex);
     }
 
     @Override
@@ -41,13 +32,20 @@ public class RandomBag implements IBag {
     }
 
     @Override
+    public ISurprise takeOut() {
+        Random randomGen = new Random();
+        int nextIndex = randomGen.nextInt(surprises.size());
+
+        return surprises.isEmpty() ? null : surprises.remove(nextIndex);
+    }
+
+    @Override
     public boolean isEmpty() {
-        return this.surprises.isEmpty();
+        return surprises.isEmpty();
     }
 
     @Override
     public int size() {
         return surprises.size();
     }
-
 }

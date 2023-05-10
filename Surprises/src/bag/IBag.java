@@ -2,10 +2,7 @@ package bag;
 
 import surprise.ISurprise;
 
-import java.util.ArrayList;
-
 public interface IBag {
-
     // adds a surprise in the bag
     void put(ISurprise newSurprise);
 
@@ -16,7 +13,7 @@ public interface IBag {
     // removes a surprise from the bag and returns it
     ISurprise takeOut();
 
-    public void put(ISurprise[] surpriseArrayList);
+    void put(ISurprise[] surpriseArrayList);
 
     // Checks if the bag is empty or not
     boolean isEmpty();

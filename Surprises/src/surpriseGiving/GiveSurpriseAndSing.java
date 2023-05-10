@@ -1,6 +1,6 @@
 package surpriseGiving;
 
-public class GiveSurpriseAndSing extends AbstractGiveSurprises{
+public class GiveSurpriseAndSing extends AbstractGiveSurprises {
 
     public GiveSurpriseAndSing(String type, int waitTime) {
         super(type, waitTime);
@@ -8,8 +8,6 @@ public class GiveSurpriseAndSing extends AbstractGiveSurprises{
 
     @Override
     public void giveWithPassion() {
-
         System.out.println("Singing a nice song, full of joy and genuine excitement...");
-
     }
 }
